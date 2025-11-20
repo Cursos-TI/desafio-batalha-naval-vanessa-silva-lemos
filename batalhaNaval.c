@@ -14,9 +14,19 @@ int main() {
     int navioHorizontal[3] = {3, 3, 3};
     int navioVertical[3]   = {3, 3, 3};
 
+    // Novos navios diagonais
+    int navioDiagonal1[3] = {3, 3, 3}; //diagonal principal (linha++ / coluna++)
+    int navioDiagonal2[3] = {3, 3, 3}; // diagonal secundaria (linha++ / coluna++)
+
+
     //Coordenadas iniciais
     int linhaH = 2, colunaH =4;
     int linhaV = 5, colunaV = 7;
+
+    //Coordenadas dos navios diagonais
+    int linhaD1 = 0, colunaD1 = 0; //diagonal principal
+    int linhaD2 = 0, colunaD2 = 9; //diagonal secundária
+
 
     // Coloca navio Horizontal
     for (int k = 0; k < 3; k++) {
@@ -26,6 +36,16 @@ int main() {
     // Coloca Navio Vertical
     for (int k = 0; k < 3; k++) {
         tabuleiro[linhaV + k][colunaV] = navioVertical[k];
+    }
+
+    // Coloca Navio diagonal principal (linha++, coluna++)
+    for (int k = 0; k < 3; k++) {
+        tabuleiro[linhaD1 + k][colunaD1 + k] = navioDiagonal1[k];
+    }
+
+    //Coloca Navio diagonal secundaria (linha++, coluna--)
+    for (int k = 0; k<3; k++) {
+        tabuleiro[linhaD2 + k][colunaD2 - k] = navioDiagonal2[k];
     }
 
     //Imprimir tabuleiro com cabeçalho A-J
